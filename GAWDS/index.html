@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<style>
+body {font-family: Arial, orbitron, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: black;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: green;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px 20px 20px 20px;
+    margin: 0px 25% 0px 25%;
+    width: 50%;
+}
+</style>
+</head>
+<body >
+
+<h3 style="text-align:center;font-size:30px;">Contact Form</h3>
+
+<div class="container" >
+  <form
+      id="form" target="_self" onsubmit="" action="" >
+
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="age">Age</label>
+    <input type="text" id="age" name=age placeholder="Your age..">
+
+    <label for="contact">Contact Number</label>
+    <input type="text" id="contact" name="contact" placeholder="Your contact number..">
+
+
+    <input type="submit" id="send" value="Submit">
+    <!-- <button id="send" type="submit">
+                        Send
+                    </button> -->
+  </form>
+</div>
+
+<script type="text/javascript">
+           function postToGoogle() {
+             var field1 = $('#fname').val();
+             var field2 = $('#lname').val();
+             var field3 = $('#age').val();
+               var field4 = $('#contact').val();
+
+               $.ajax({
+               url: "https://docs.google.com/forms/d/1f4ZPhMDCPdrfsGemaCFQzJCMGNXaisr2Zy7lcpgZ5KQ",
+               data: {"entry.2005620554": field1},
+                data: {"entry.1845332448": field2},
+                 data: {"entry.686032835": field3},
+                  data: {"entry.1166974658": field4},
+               type: "POST",
+               dataType: "xml",
+               statusCode: {
+                   0: function() {
+                     console.log("success");
+                       //Success message
+                   },
+                   200: function() {
+                     console.log("failure");
+                       //Success Message
+                   }
+               }
+           });
+           }
+
+           $(document).ready(function(){
+               $('#form').submit(function() {
+                   postToGoogle();
+                   return false;
+               });
+           });
+       </script>
+
+</body>
+</html>

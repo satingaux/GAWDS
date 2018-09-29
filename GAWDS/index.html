@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <style>
 body {font-family: Arial, orbitron, sans-serif;}
 * {box-sizing: border-box;}
@@ -45,9 +44,8 @@ input[type=submit]:hover {
 
 <div class="container" >
   <form
-
       action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdQQPERuQwC6orOrNCD-H6aEnHa4pWubffkeUPYYy5NIdv2qg/formResponse"
-method="POST"id="form" target="_self" onsubmit="">
+ method="POST" id="form" target="_self" onsubmit="">
 
     <label >First Name</label>
     <input type="text" id="fname" name="fname" placeholder="Your name..">
@@ -62,21 +60,17 @@ method="POST"id="form" target="_self" onsubmit="">
     <input type="text" id="contact" name="contact" placeholder="Your contact number..">
 
 
-    <input type="submit" id="send" value="Submit">
+    <input type="submit" id="send" onclick="postToGoogle()" value="Submit">
 
-                    <button id="ButtonSubmit" onclick="postToGoogle()"
-type="button" >Send</button>
-  </form>
-</div>
+                    <!-- <button id="ButtonSubmit" onclick="postToGoogle()"
+type="button" >Send</button> -->
 
 <script >
            function postToGoogle() {
-             console.log("first");
              var field1 = $('#fname').val();
-             console.log("second");
              var field2 = $('#lname').val();
              var field3 = $('#age').val();
-               var field4 = $('#contact').val();
+            var field4 = $('#contact').val();
 
                $.ajax({
                url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdQQPERuQwC6orOrNCD-H6aEnHa4pWubffkeUPYYy5NIdv2qg/formResponse",
@@ -102,5 +96,7 @@ type="button" >Send</button>
 
        </script>
 
+     </form>
+   </div>
 </body>
 </html>

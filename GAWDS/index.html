@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 <style>
 body {font-family: Arial, orbitron, sans-serif;}
 * {box-sizing: border-box;}
@@ -46,41 +45,45 @@ input[type=submit]:hover {
 
 <div class="container" >
   <form
-      id="form" target="_self" onsubmit="" action="" >
 
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      action="https://docs.google.com/forms/u/1/d/e/1FAIpQLSdQQPERuQwC6orOrNCD-H6aEnHa4pWubffkeUPYYy5NIdv2qg/formResponse"
+method="POST"id="form" target="_self" onsubmit="">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <label >First Name</label>
+    <input type="text" id="fname" name="fname" placeholder="Your name..">
 
-    <label for="age">Age</label>
-    <input type="text" id="age" name=age placeholder="Your age..">
+    <label >Last Name</label>
+    <input type="text" id="lname" name="lname" placeholder="Your last name..">
 
-    <label for="contact">Contact Number</label>
+    <label >Age</label>
+    <input type="text" id="age" name="age" placeholder="Your age..">
+
+    <label >Contact Number</label>
     <input type="text" id="contact" name="contact" placeholder="Your contact number..">
 
 
     <input type="submit" id="send" value="Submit">
-    <!-- <button id="send" type="submit">
-                        Send
-                    </button> -->
+
+                    <button id="ButtonSubmit" onclick="postToGoogle()"
+type="button" >Send</button>
   </form>
 </div>
 
-<script type="text/javascript">
+<script >
            function postToGoogle() {
+             console.log("first");
              var field1 = $('#fname').val();
+             console.log("second");
              var field2 = $('#lname').val();
              var field3 = $('#age').val();
                var field4 = $('#contact').val();
 
                $.ajax({
-               url: "https://docs.google.com/forms/d/1f4ZPhMDCPdrfsGemaCFQzJCMGNXaisr2Zy7lcpgZ5KQ",
-               data: {"entry.2005620554": field1},
-                data: {"entry.1845332448": field2},
-                 data: {"entry.686032835": field3},
-                  data: {"entry.1166974658": field4},
+               url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdQQPERuQwC6orOrNCD-H6aEnHa4pWubffkeUPYYy5NIdv2qg/formResponse",
+               data: {"entry.2005620554": field1,
+                "entry.1845332448": field2,
+                "entry.686032835": field3,
+                  "entry.1166974658": field4},
                type: "POST",
                dataType: "xml",
                statusCode: {
@@ -96,12 +99,7 @@ input[type=submit]:hover {
            });
            }
 
-           $(document).ready(function(){
-               $('#form').submit(function() {
-                   postToGoogle();
-                   return false;
-               });
-           });
+
        </script>
 
 </body>

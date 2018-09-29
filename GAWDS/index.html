@@ -48,16 +48,16 @@ input[type=submit]:hover {
  method="POST" id="form" target="_self" onsubmit="">
 
     <label >First Name</label>
-    <input type="text" id="fname" name="fname" placeholder="Your name..">
+    <input type="text" id="fname" name="entry.2005620554" placeholder="Your name..">
 
     <label >Last Name</label>
-    <input type="text" id="lname" name="lname" placeholder="Your last name..">
+    <input type="text" id="lname" name="entry.1845332448" placeholder="Your last name..">
 
     <label >Age</label>
-    <input type="text" id="age" name="age" placeholder="Your age..">
+    <input type="text" id="age" name="entry.686032835" placeholder="Your age..">
 
     <label >Contact Number</label>
-    <input type="text" id="contact" name="contact" placeholder="Your contact number..">
+    <input type="text" id="contact" name="entry.1166974658" placeholder="Your contact number..">
 
 
     <input type="submit" id="send" onclick="postToGoogle()" value="Submit">
@@ -67,10 +67,10 @@ type="button" >Send</button> -->
 
 <script >
            function postToGoogle() {
-             var field1 = $('#fname').val();
-             var field2 = $('#lname').val();
-             var field3 = $('#age').val();
-            var field4 = $('#contact').val();
+             var field1 = $('#entry.2005620554').val();
+             var field2 = $('#entry.1845332448').val();
+             var field3 = $('#entry.686032835').val();
+            var field4 = $('#entry.1166974658').val();
 
                $.ajax({
                url: "https://docs.google.com/forms/u/1/d/e/1FAIpQLSdQQPERuQwC6orOrNCD-H6aEnHa4pWubffkeUPYYy5NIdv2qg/formResponse",
